@@ -17,7 +17,7 @@ app.use("/product", productController)
 app.use("/user", userController);
 
 app.get("/",(req,res)=>{
-    res.redirect("/home");
+    res.send("Welcome to home page");
 });
 
 
