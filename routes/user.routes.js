@@ -8,7 +8,7 @@ const cors = require("cors");
 const userController = Router();
 const authenticate = require("./../middlewares/authentication");
 
-const passport = require("./../middlewares/google.Oauth");
+// const passport = require("./../middlewares/google.Oauth");
 
 userController.use(cors());
 
@@ -71,19 +71,19 @@ userController.post("/login", async (req, res) => {
   }
 });
 
-userController.get("/auth/google",
-  passport.authenticate("google", { scope: ["profile", "email"] })
-);
+// userController.get("/auth/google",
+//   passport.authenticate("google", { scope: ["profile", "email"] })
+// );
 
-userController.get("/auth/google/callback",
-  passport.authenticate("google", {
-    failureRedirect: "/user/login",
-    session: false,
-  }),
-  function (req, res) {
-    // Successful authentication, redirect home.
-    res.redirect("/home");
-  }
-);
+// userController.get("/auth/google/callback",
+//   passport.authenticate("google", {
+//     failureRedirect: "/user/login",
+//     session: false,
+//   }),
+//   function (req, res) {
+//     // Successful authentication, redirect home.
+//     res.redirect("/home");
+//   }
+// );
 
 module.exports=userController;
